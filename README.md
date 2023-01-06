@@ -10,7 +10,7 @@ Creates Plex collections for Letterboxd lists.
 
 ## Usage
 
-`node ./index.js --ip {PLEX_IP} {LIST_TXT_PATH}`
+`node ./index.js --ip {PLEX_IP} --username {USERNAME} --password {PASSWORD} {LIST_TXT_PATH}`
 
 Where `{LIST_TXT_PATH}` is the path to a file with one Letterboxd list URL per line. For example:
 
