@@ -5,14 +5,26 @@ import * as cheerio from 'cheerio'
 import urlJoin from 'url-join'
 import fs from 'fs'
 import commandLineArgs from 'command-line-args'
+import plexApiCredentials from "plex-api-credentials"
+
 
 const optionDefinitions = [
 	{ name: 'ip', type: String },
 	{ name: 'listPath', type: String, multiple: false, defaultOption: true },
+	{ name: 'username', type: String },
+	{ name: 'password', type: String },
 ]
 const options = commandLineArgs(optionDefinitions)
+const userAndPass = plexApiCredentials({
+	username: options.username,
+	password: options.password
+})
 
-const client = new PlexAPI(options.ip);
+
+const client = new PlexAPI({
+	hostname: options.ip,
+	authenticator: userAndPass 
+});
 
 // TODO ratings
 
